@@ -46,6 +46,9 @@ states = {
 
 state = states.menu
 function enter(new_state)
+    if state.exit then
+        state:exit()
+    end
     state = new_state
     if state.enter then
         state:enter()
