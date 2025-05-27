@@ -10,7 +10,7 @@ states = {
             end
         end,
         draw = function()
-            cls(0)
+            cls(13)
             print("\^t\^wfAST gAME", 10, 10, 7)
             print("press ❎ to start", 10, 30, 7)
         end},
