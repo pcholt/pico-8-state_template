@@ -11,19 +11,19 @@ states = {
         end,
         draw = function()
             cls(13)
-            print("\^t\^wfAST gAME", 10, 10, 7)
+            print("\^t\^wfast game menu", 10, 10, 7)
             print("press ❎ to start", 10, 30, 7)
         end},
     game = {
         update = function()
-            if btnp(1) then
+            if btnp(5) then
                 enter(states.game_over)
             end
         end,
         draw = function()
             cls(1)
             print("game", 10, 10, 7)
-            print("press ➡️ to game_over", 10, 20, 7)
+            print("press ❎ to game_over", 10, 20, 7)
         end},
     game_over = {
         t = 0,
@@ -38,15 +38,14 @@ states = {
         end,
         draw = function(self)
             cls(3)
-            print("game_over", 10, 10, 2)
-            print("press ⬆️ to menu", 10, 20, 7)
+            print("game over", 10, 10, 2)
+            print("wait 2 seconds", 10, 20, 7)
         end
     }
 }
 
-state = states.menu
 function enter(new_state)
-    if state.exit then
+    if state and state.exit then
         state:exit()
     end
     state = new_state
@@ -54,6 +53,8 @@ function enter(new_state)
         state:enter()
     end
 end
+
+enter(states.menu)
 
 function _draw()
     state:draw()
